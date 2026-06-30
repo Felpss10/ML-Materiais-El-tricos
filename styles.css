@@ -1,0 +1,366 @@
+    
+        /* =========================================
+           VARIÁVEIS DE CORES E CONFIGURAÇÕES GERAIS
+           ========================================= */
+        :root {
+            --cor-fundo-escura: #1a1c21;
+            --cor-amarela: #FFC700;
+            --cor-texto-claro: #ffffff;
+            --cor-texto-escuro: #000000;
+            --fonte-principal: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--fonte-principal);
+        }
+
+        body {
+
+            background-image: url('img/Backgrund.png'); /* Substitua .jpg por .png ou .webp se for o caso */
+            background-size: cover; /* Faz a imagem cobrir a tela inteira sem distorcer */
+            background-position: center; /* Centraliza a imagem na tela */
+            background-repeat: no-repeat; /* Evita que a imagem fique se repetindo como um mosaico */
+            background-attachment: fixed; /* Faz a imagem ficar fixa no fundo enquanto o usuário rola a página */
+    
+            background-color: var(--cor-fundo-escura);
+            color: var(--cor-texto-claro);
+            overflow-x: hidden;
+
+}
+        
+
+        /* =========================================
+           CABEÇALHO (HEADER) E NAVEGAÇÃO
+           ========================================= */
+        header {
+            padding: 2rem 5%;
+        }
+
+        .barra-navegacao {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+    display: flex;
+    align-items: center;
+    gap: 14px; /* Espaçamento entre o quadrado e o texto */
+}
+
+.logo-box {
+    background-color: #FFC700; /* A cor amarela do design */
+    color: #ffffff;            /* Texto ML em branco */
+    width: 52px; 
+    height: 52px;
+    border-radius: 14px;       /* O arredondamento exato do seu print */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;         /* Tamanho da fonte ML */
+    font-weight: 700;          /* Negrito */
+}
+
+.logo-texto {
+    color: #ffffff;            /* Texto Materiais Elétricos em branco */
+    font-size: 1.3rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--cor-amarela);
+        }
+
+        /* =========================================
+           SESSÃO 1 - INTRODUÇÃO (HOME PAGE)
+           ========================================= */
+        .introducao-home {
+            padding: 4rem 5%;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            position: relative;
+        }
+
+        .titulo-principal {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .texto-amarelo {
+            color: var(--cor-amarela);
+        }
+
+        .lista-marcadores {
+            list-style: none;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #e0e0e0;
+        }
+
+        .botao-amarelo {
+            display: inline-block;
+            background-color: var(--cor-amarela);
+            color: var(--cor-texto-escuro);
+            text-decoration: none;
+            padding: 15px 30px;
+            font-weight: 700;
+            border-radius: 8px;
+            margin-top: 1rem;
+            width: fit-content;
+            text-transform: uppercase;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .botao-amarelo:hover {
+            transform: scale(1.05);
+            background-color: #e6b400;
+        }
+
+        /* =========================================
+           SESSÃO 2 - TRANSIÇÃO (CARDS AMARELOS)
+           ========================================= */
+        .secao-transicao {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 4rem 5%;
+            flex-wrap: wrap; /* Permite quebrar linha no celular */
+        }
+
+        .cartao-transicao {
+            background-color: var(--cor-amarela);
+            color: var(--cor-texto-escuro);
+            padding: 2.5rem 1.5rem;
+            border-radius: 15px;
+            width: 300px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 200px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .cartao-transicao h4 {
+            font-size: 1.2rem;
+            font-weight: 900;
+        }
+
+        .cartao-transicao p {
+            display: none; /* Esconde a descrição inicialmente (conforme seu HTML de hover) */
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        .cartao-transicao:hover h4 {
+            display: none;
+        }
+        .cartao-transicao:hover p {
+            display: block; /* Mostra a descrição ao passar o mouse */
+        }
+
+
+        /* =========================================
+           SESSÃO 3 - PRODUTOS (COM EFEITO DE ROLAGEM)
+           ========================================= */
+        .secao-produtos {
+            padding: 4rem 0 4rem 5%; /* Sem padding na direita para a rolagem colar na borda */
+        }
+
+        .secao-produtos h2 {
+            color: var(--cor-amarela);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            padding-right: 5%; /* Compensa o padding tirado do container */
+        }
+
+        /* O Segredo da Rolagem Horizontal */
+        .carrossel-produtos {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto; /* Ativa a barra de rolagem */
+            padding-bottom: 20px; /* Espaço para a barra de rolagem */
+            padding-right: 5%; /* Espaço no final da rolagem */
+            scroll-snap-type: x mandatory; /* Deixa a rolagem suave parando nos itens */
+        }
+
+        /* Estilizando a barra de rolagem (opcional, para ficar bonito) */
+        .carrossel-produtos::-webkit-scrollbar {
+            height: 10px;
+        }
+        .carrossel-produtos::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        .carrossel-produtos::-webkit-scrollbar-thumb {
+            background: var(--cor-amarela);
+            border-radius: 10px;
+        }
+
+        .cartao-produto {
+            flex: 0 0 260px; /* Impede os itens de encolherem. Largura fixa de 260px */
+            background-color: var(--cor-texto-claro);
+            border: 6px solid var(--cor-amarela);
+            border-radius: 15px;
+            padding: 1.5rem;
+            color: var(--cor-texto-escuro);
+            text-align: center;
+            scroll-snap-align: start; /* Ponto de parada da rolagem */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .cartao-produto img {
+            width: 100%;
+            height: 180px;
+            object-fit: contain; /* Mantém a proporção da imagem */
+        }
+
+        .cartao-produto p {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+
+        /* =========================================
+           SESSÃO 4 - SOBRE NÓS
+           ========================================= */
+        .secao-sobre-nos-container {
+            padding: 0 5% 4rem 5%;
+        }
+
+        .titulo-sobre {
+            background-color: var(--cor-amarela);
+            color: var(--cor-texto-escuro);
+            display: inline-block;
+            padding: 10px 40px;
+            font-size: 2rem;
+            font-weight: 900;
+            border-radius: 15px 15px 0 0;
+            margin-left: 10%;
+        }
+
+        .sobre-nos-conteudo {
+            background-color: var(--cor-amarela);
+            color: var(--cor-texto-escuro);
+            display: flex;
+            align-items: center;
+            padding: 4rem;
+            gap: 3rem;
+            border-radius: 15px;
+        }
+
+        /* Placeholder para a imagem da ilustração (simulando a bobina/isolador) */
+        .placeholder-ilustracao {
+            width: 300px;
+            height: 300px;
+            background-image: url();
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            opacity: 0.5;
+            flex-shrink: 0;
+        }
+        .placeholder-ilustracao {
+            width: 300px;
+            height: 300px;
+            /* Substitua 'sobre.jpg' pelo nome exato do arquivo que você salvou na pasta img */
+            background-image: url('img/3.png'); 
+            background-repeat: no-repeat;
+            background-size: contain; /* Ou use 'cover' se quiser que ela preencha todo o quadrado */
+            background-position: center;
+            opacity: 1; /* Ajustei para 1 para a imagem ficar nítida, como no seu print */
+            flex-shrink: 0;
+            border-radius: 12px; /* Adicionei cantos arredondados para ficar mais profissional */
+        }
+        .sobre-nos-texto {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+
+        /* =========================================
+           RODAPÉ (FOOTER)
+           ========================================= */
+        footer {
+            background-color: #111111; /* Um pouco mais escuro que o body */
+            padding: 4rem 5%;
+            margin-top: 2rem;
+        }
+
+        .footer-conteudo {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-coluna {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-coluna h3, .footer-coluna h4 {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--cor-texto-claro);
+            font-weight: 400;
+        }
+
+        .footer-coluna h4 {
+            color: var(--cor-texto-claro);
+        }
+
+        .footer-coluna p {
+            color: #999;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        /* =========================================
+           RESPONSIVIDADE (Telas menores)
+           ========================================= */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Esconde menu no celular para simplificar */
+            }
+            .titulo-principal {
+                font-size: 2.5rem;
+            }
+            .sobre-nos-conteudo {
+                flex-direction: column;
+                padding: 2rem;
+                text-align: center;
+            }
+            .placeholder-ilustracao {
+                width: 200px;
+                height: 200px;
+            }
+            .footer-conteudo {
+                flex-direction: column;
+            }
+        }
+    
